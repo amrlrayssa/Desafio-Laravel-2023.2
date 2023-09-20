@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Animal extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'specie',
+        'breed'
+    ];
+
+    /**
+    * Get the owner that owns the animal.
+    */
+    public function owners()
+    {
+        return $this->belongsTo(Owner::class);
+    }
+
+    /**
+    * Get all of the consultations for the animal.
+    */
+    public function consultations()
+    {
+        return $this->hasMany(Consultation::class);
+    }
+}

@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'phone',
+        'address',
+        'birth_date',
+        'work_period'
     ];
 
     /**
@@ -42,4 +47,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+    * Get all of the consultations created by user.
+    */
+    public function consultations()
+    {
+        return $this->hasMany(Consultation::class);
+    }
 }
