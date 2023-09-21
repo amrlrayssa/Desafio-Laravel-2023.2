@@ -1,3 +1,6 @@
+@section('title', 'Pet Care | Login')
+<title>@yield('title')</title>
+
 <x-guest-layout>
     <x-auth-card>
         <!-- Session Status -->
@@ -67,7 +70,7 @@
                         <input
                             id="remember_me"
                             type="checkbox"
-                            class="text-purple-500 border-gray-300 rounded focus:border-purple-300 focus:ring focus:ring-purple-500 dark:border-gray-600 dark:bg-dark-eval-1 dark:focus:ring-offset-dark-eval-1"
+                            class="text-cyan-500 border-gray-300 rounded focus:border-cyan-300 focus:ring focus:ring-cyan-500 dark:border-gray-600 dark:bg-dark-eval-1 dark:focus:ring-offset-dark-eval-1"
                             name="remember"
                         >
 
@@ -90,15 +93,6 @@
                         <span>{{ __('Log in') }}</span>
                     </x-button>
                 </div>
-
-                @if (Route::has('register'))
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        {{ __('Don’t have an account?') }}
-                        <a href="{{ route('register') }}" class="text-blue-500 hover:underline">
-                            {{ __('Register') }}
-                        </a>
-                    </p>
-                @endif
             </div>
         </form>
     </x-auth-card>
