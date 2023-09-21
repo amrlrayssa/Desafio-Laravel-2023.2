@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('dashboard'));
 });
 
 Route::get('/dashboard', function () {
@@ -41,5 +43,11 @@ Route::get('/buttons/icon', function () {
 Route::get('/buttons/text-icon', function () {
     return view('buttons-showcase.text-icon');
 })->middleware(['auth'])->name('buttons.text-icon');
+
+// Routes for the CRUDs
+Route::resource('users', UserController::class);
+Route::resource('animals', AnimalController::class);
+Route::resource('owners', OwnerController::class);
+Route::resource('consultations', ConsultationController::class);
 
 require __DIR__ . '/auth.php';
