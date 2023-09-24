@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -31,7 +32,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $user = new User();
+        return view('users.index', compact('user'));
     }
 
     /**
@@ -39,23 +41,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-            'role' => 'required|in:admin,user',
-            'phone' => 'nullable|string',
-            'address' => 'nullable|string',
-            'birth_date' => 'nullable|date',
-            'work_period' => 'nullable|in:morning,afternoon,evening,full_time',
-        ]);
+        $data = $request->all();
+        User::create($data);
 
-        $validatedData['password'] = bcrypt($validatedData['password']);
-
-        User::create($validatedData);
-
-        return redirect()->route('users.index')
-            ->with('success', 'Usuário criado com sucesso!');
+        return redirect()->route('users.index')->with('success', true);
     }
 
     /**
@@ -63,7 +52,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        return view('users.index', compact('user'));
     }
 
     /**
@@ -71,7 +60,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        return view('users.index', compact('user'));
     }
 
     /**
@@ -79,27 +68,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'nullable|min:6',
-            'role' => 'required|in:admin,user',
-            'phone' => 'nullable|string',
-            'address' => 'nullable|string',
-            'birth_date' => 'nullable|date',
-            'work_period' => 'nullable|in:morning,afternoon,evening,full_time',
-        ]);
+        $data = $request->all();
+        $user->update($data);
 
-        if ($validatedData['password']) {
-            $validatedData['password'] = bcrypt($validatedData['password']);
-        } else {
-            unset($validatedData['password']);
-        }
-
-        $user->update($validatedData);
-
-        return redirect()->route('users.index')
-            ->with('success', 'Usuário atualizado com sucesso!');
+        return redirect()->route('users.index')->with('success', true);
     }
 
     /**
@@ -108,7 +80,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index')
-            ->with('success', 'Usuário excluído com sucesso!');
+
+        return redirect()->route('users.index')->with('success', true);
     }
 }

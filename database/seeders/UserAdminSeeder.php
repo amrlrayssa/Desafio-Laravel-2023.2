@@ -16,7 +16,7 @@ class UserAdminSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'role' => 'admin',
+            'isAdmin' => true,
             'name' => 'Osvaldo',
             'email' => 'osvaldo@petcare.com',
             'password' => Hash::make('//password'),

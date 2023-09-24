@@ -3,8 +3,12 @@ import './bootstrap'
 import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 import PerfectScrollbar from 'perfect-scrollbar'
-
+import 'flowbite'
+import Datepicker from 'flowbite-datepicker/Datepicker';
+import 'flowbite-datepicker';
 window.PerfectScrollbar = PerfectScrollbar
+
+Alpine.plugin(collapse)
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('mainState', () => {

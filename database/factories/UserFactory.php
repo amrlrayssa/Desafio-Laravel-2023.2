@@ -18,12 +18,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'role' => 'user', // 'admin' or 'user'
+            'isAdmin' => false, // 'admin' or 'user
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => fake()->password(),
-            'birth_date' => fake()->date(),
+            'birth_date' => fake()->date('Y-m-d'),
             'phone' => fake()->phoneNumber(),
             'address' => fake()->address(),
             'work_period' => fake()->randomElement(['morning', 'afternoon', 'evening', 'full_time']),
