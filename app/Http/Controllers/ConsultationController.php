@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Animal;
+use App\Models\User;
 use App\Models\Consultation;
+use App\Models\Owner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,7 +16,11 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        $consultations = Consultation::all();
+        $users = User::all();
+        $animals = Animal::all();
+        $owners = Owner::all();
+        return view('consultations.index', compact('animals', 'users', 'consultations', 'owners'));
     }
 
     /**
@@ -21,7 +28,10 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $animals = Animal::all();
+        $consultation = new Consultation();
+        return view('consultations.index', compact('animals', 'users', 'consultations'));
     }
 
     /**
@@ -29,7 +39,9 @@ class ConsultationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Consultation::create($data);
+        return redirect()->route('consultations.index')->with('success', true);
     }
 
     /**
@@ -37,15 +49,22 @@ class ConsultationController extends Controller
      */
     public function show(Consultation $consultation)
     {
-        //
+        $users = User::all();
+        $animals = Animal::all();
+        $owners = Owner::all();
+        return view('consultations.index', compact('animals', 'users', 'consultations'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Consultation $consultation)
+    public function edit(Consultation $consultation, $id)
     {
-        //
+        $animal = Animal::findOrFail($id);
+        $users = User::all();
+        $animals = Animal::all();
+        $owners = Owner::all();
+        return view('consultations.index', compact('animals', 'users', 'consultations'));
     }
 
     /**
@@ -53,7 +72,13 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, Consultation $consultation)
     {
-        //
+        $consultation->treatment = $request->treatment;
+        $consultation->initial_date = $request->initial_date;
+        $consultation->final_date = $request->final_date;
+        $consultation->price = $request->price;
+        $consultation->save();
+
+        return redirect()->route('consultations.index')->with('success', true);
     }
 
     /**
@@ -61,6 +86,8 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        //
+        $consultation->delete();
+
+        return redirect()->route('consultations.index')->with('success', true);
     }
 }

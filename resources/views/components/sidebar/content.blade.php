@@ -44,4 +44,14 @@
         </x-slot>
     </x-sidebar.link>
 
+    <x-sidebar.link
+        title="Consultations"
+        href="{{ route('consultations.index') }}"
+        :isActive="request()->routeIs('consultations.index')"
+    >
+        <x-slot name="icon">
+            <x-icons.consultations class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+
 </x-perfect-scrollbar>

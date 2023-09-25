@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('specie');
             $table->string('breed');
+            $table->date('birth_date')->nullable();
             $table->foreignId('owner_id')->constrained();
             $table->timestamps();
         });

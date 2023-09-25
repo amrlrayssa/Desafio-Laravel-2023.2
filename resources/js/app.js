@@ -66,7 +66,7 @@ document.addEventListener('alpine:init', () => {
                 if (window.innerWidth <= 1024) {
                     this.isSidebarOpen = false
                 } else {
-                    this.isSidebarOpen = true
+                    this.isSidebarOpen = false
                 }
             },
             scrollingDown: false,

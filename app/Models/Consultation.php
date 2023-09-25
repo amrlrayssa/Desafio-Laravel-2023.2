@@ -14,6 +14,8 @@ class Consultation extends Model
         'initial_date',
         'final_date',
         'price',
+        'user_id',
+        'animal_id',
     ];
 
     /**

@@ -13,6 +13,7 @@ class Animal extends Model
         'name',
         'specie',
         'breed',
+        'birth_date',
         'owner_id',
     ];
 

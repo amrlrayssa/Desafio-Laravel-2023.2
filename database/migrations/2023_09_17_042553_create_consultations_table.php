@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('animal_id')->constrained();
             $table->string('treatment')->nullable();
-            $table->dateTime('initial_date');
+            $table->date('initial_date');
             $table->dateTime('final_date');
-            $table->decimal('price', 8, 2)->nullable();
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

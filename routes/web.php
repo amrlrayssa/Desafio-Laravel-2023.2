@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\ConsultationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,6 @@ Route::get('/buttons/text-icon', function () {
 Route::resource('users', UserController::class)->except(['create', 'show', 'edit', 'update']);
 Route::resource('owners', OwnerController::class)->except(['create', 'edit']);
 Route::resource('animals', AnimalController::class)->except(['create', 'edit']);
-Route::resource('consultations', ConsultationController::class)->except(['create', 'show', 'edit', 'update']);
+Route::resource('consultations', ConsultationController::class)->except(['create', 'edit']);
 
 require __DIR__ . '/auth.php';
