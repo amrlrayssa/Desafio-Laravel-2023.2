@@ -98,7 +98,7 @@ class OwnerController extends Controller
 
         $owner->save();
 
-        return redirect()->route('owners.index')->with('success', 'Usuário atualizado com sucesso.');
+        return redirect()->route('owners.index')->with('success', true);
     }
 
     /**

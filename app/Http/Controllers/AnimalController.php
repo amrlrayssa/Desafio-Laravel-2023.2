@@ -16,7 +16,10 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+        $animals = Animal::all();
+        $owners = Owner::all();
+        $consultations = Consultation::all();
+        return view('animals.index', compact('animals', 'owners', 'consultations'));
     }
 
     /**
@@ -24,7 +27,9 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        $owners = Owner::all();
+        $animal = new Animal();
+        return view('animals.index', compact('animal', 'owners'));
     }
 
     /**
@@ -32,7 +37,9 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Animal::create($data);
+        return redirect()->route('animals.index')->with('success', true);
     }
 
     /**
@@ -40,15 +47,19 @@ class AnimalController extends Controller
      */
     public function show(Animal $animal)
     {
-        //
+        $owners = Owner::all();
+        $consultations = Consultation::all();
+        return view ('animals.index', compact('animal', 'owners', 'consultations'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Animal $animal)
+    public function edit(Animal $animal, $id)
     {
-        //
+        $animal = Animal::findOrFail($id);
+        $owners = Owner::all();
+        return view('animals.edit', compact('animal', 'owner'));
     }
 
     /**
@@ -56,7 +67,14 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $animal->name = $request->name;
+        $animal->specie = $request->specie;
+        $animal->breed = $request->breed;
+
+        $animal->save();
+
+        return redirect()->route('animals.index')->with('success', true);
+
     }
 
     /**
@@ -64,6 +82,8 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
-        //
+        $animal->delete();
+        
+        return redirect()->route('animals.index')->with('success', true);
     }
 }

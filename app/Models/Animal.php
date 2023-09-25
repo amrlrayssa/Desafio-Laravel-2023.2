@@ -12,7 +12,8 @@ class Animal extends Model
     protected $fillable = [
         'name',
         'specie',
-        'breed'
+        'breed',
+        'owner_id',
     ];
 
     /**
