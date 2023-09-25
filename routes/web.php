@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OwnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +44,8 @@ Route::get('/buttons/text-icon', function () {
 })->middleware(['auth'])->name('buttons.text-icon');
 
 Route::resource('users', UserController::class)->except(['create', 'show', 'edit', 'update']);
-Route::resource('animals', AnimalController::class);
-Route::resource('owners', OwnerController::class);
-Route::resource('consultations', ConsultationController::class);
+Route::resource('animals', AnimalController::class)->except(['create', 'show', 'edit', 'update']);
+Route::resource('owners', OwnerController::class)->except(['create', 'edit']);
+Route::resource('consultations', ConsultationController::class)->except(['create', 'show', 'edit', 'update']);
 
 require __DIR__ . '/auth.php';

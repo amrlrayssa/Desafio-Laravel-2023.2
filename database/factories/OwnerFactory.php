@@ -18,11 +18,12 @@ class OwnerFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'image' => 'default.jpg',
             'email' => fake()->unique()->safeEmail(),
             'cpf' => fake()->unique()->numerify('###########'),
             'birth_date' => fake()->date('Y-m-d'),
             'phone' => fake()->phoneNumber(),
-            'address' => fake()->address()
+            'address' => fake()->address(),
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Owner extends Model
 {
@@ -11,7 +12,7 @@ class Owner extends Model
 
     protected $fillable = [
         'name',
-        'photo',
+        'image',
         'email',
         'cpf',
         'birth_date',

@@ -18,15 +18,6 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
-    public function search(Request $request)
-    {
-        $usersearch = $request->input('usersearch');
-
-        $usuarios = User::where('name', 'LIKE', '%' . $usersearch . '%')->get();
-
-        return view('users.index', compact('users'));
-    }
-
     /**
      * Show the form for creating a new resource.
      */
