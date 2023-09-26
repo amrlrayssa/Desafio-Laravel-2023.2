@@ -2,13 +2,11 @@
 
 namespace App\Policies;
 
+use Illuminate\Auth\Access\Response;
 use App\Models\User;
 
 class UserPolicy
 {
-    /**
-     * Create a new policy instance.
-     */
     public function isAdmin(User $user)
     {
         return $user->isAdmin;

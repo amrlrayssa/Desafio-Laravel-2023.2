@@ -4,15 +4,25 @@
     class="flex flex-col flex-1 gap-4 px-3"
 >
 
-    <x-sidebar.link
+    <x-sidebar.dropdown
         title="Dashboard"
         href="{{ route('dashboard') }}"
-        :isActive="request()->routeIs('dashboard')"
+        :active="Str::startsWith(request()->route()->uri(), 'dashboard')"
     >
         <x-slot name="icon">
             <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
-    </x-sidebar.link>
+
+        <x-sidebar.sublink
+            title="PDF - Invoice"
+            href="/pdf"
+        />
+
+        <x-sidebar.sublink
+            title="Send an Email"
+            href="/email"
+        />
+    </x-sidebar.dropdown>
     
     <x-sidebar.link
         title="Users"

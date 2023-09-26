@@ -23,13 +23,13 @@ class Consultation extends Model
     */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
     /**
     * Get the animal that owns the consultation.
     */
     public function animal()
     {
-        return $this->belongsTo(Animal::class);
+        return $this->belongsTo(Animal::class, 'animal_id');
     }
 }
