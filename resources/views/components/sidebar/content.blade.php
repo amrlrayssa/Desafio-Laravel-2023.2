@@ -16,12 +16,12 @@
         <x-sidebar.sublink
             title="PDF - Invoice"
             href="/pdf"
-        />
+        ></x-sidebar.sublink>
 
         <x-sidebar.sublink
             title="Send an Email"
             href="/email"
-        />
+        ></x-sidebar.sublink>
     </x-sidebar.dropdown>
     
     <x-sidebar.link
