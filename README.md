@@ -8,10 +8,6 @@
 
 O desafio tem como intuito treinar os novos membros da Code Jr., afim de familiarizarem melhor com o framework desenvolvendo um sitema de gerenciamento interno de uma clínica veterinária, com as funcionalidades definidas no documento de requisitos disponibilizado.
 
-## Trilha de Laravel
-
-Link: <a href="https://drive.google.com/drive/folders/16U7EIQ58v3ZgeTE-Eh3ivZ_lKretVEFc?usp=sharing">https://drive.google.com/drive/folders/16U7EIQ58v3ZgeTE-Eh3ivZ_lKretVEFc?usp=sharing</a>
-
 ## Como executar o projeto
 
 Para executar o projeto você deve seguir os seguintes passos:
@@ -22,3 +18,20 @@ Para executar o projeto você deve seguir os seguintes passos:
 - execute o comando: ```php artisan key:generate``` 
 - execute o comando: ```npm install```
 - execute o comando: ```npm run build```
+
+Além dos comandos acima, você deve utilizar o comando ```php artisan migrate``` para criar as tabelas no banco de dados e ```php artisan db:seed``` para popular as tabelas com dados fictícios. Para rodar o projeto, execute o comando ```php artisan serve``` junto com o comando ```npm run watch```.
+
+## Resultado
+
+![Dark mode login](public\img\readme\dark-login.png)
+![Light mode login](public\img\readme\light-login.png)
+![Dark mode index](public\img\readme\dark-owners-index.png)
+![Dark mode create](public\img\readme\dark-modal-create.png)
+![Dark mode show](public\img\readme\dark-modal-show.png)
+![Light mode index](public\img\readme\light-users-index.png)
+![Light mode modal](public\img\readme\light-modal.png)
+![Template PDF Invoice](public\img\readme\template-invoicepdf.png)
+
+
+OBS : O PDF atualiza de acordo com as consultas adicionadas ao banco.
+
