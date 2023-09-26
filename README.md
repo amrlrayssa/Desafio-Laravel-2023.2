@@ -23,15 +23,14 @@ Além dos comandos acima, você deve utilizar o comando ```php artisan migrate``
 
 ## Resultado
 
-![Dark mode login](public\img\readme\dark-login.png)
-![Light mode login](public\img\readme\light-login.png)
-![Dark mode index](public\img\readme\dark-owners-index.png)
-![Dark mode create](public\img\readme\dark-modal-create.png)
-![Dark mode show](public\img\readme\dark-modal-show.png)
-![Light mode index](public\img\readme\light-users-index.png)
-![Light mode modal](public\img\readme\light-modal.png)
-![Template PDF Invoice](public\img\readme\template-invoicepdf.png)
+|                               |                               |
+| ----------------------------- | ----------------------------- |
+| ![Dark mode login](public/img/readme/dark-login.png)        | ![Light mode login](public/img/readme/light-login.png)      |
+| ![Dark mode index](public/img/readme/dark-owners-index.png)  | ![Light mode index](public/img/readme/light-users-index.png)|  |
+| ![Dark mode show](public/img/readme/dark-modal-show.png)     | ![Light mode modal](public/img/readme/light-modal.png)|
+| ![Dark mode create](public/img/readme/dark-modal-create.png)     | ![Template PDF Invoice](public/img/readme/template-invoicepdf.png) |
 
+### Observações
 
-OBS : O PDF atualiza de acordo com as consultas adicionadas ao banco.
+O PDF atualiza de acordo com as consultas adicionadas ao banco.
 
